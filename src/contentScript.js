@@ -1,43 +1,17 @@
-'use strict';
+function autofillFields() {
+  let patient_id_field = document.getElementById('patient_id');
+  let date_of_usg_field = document.getElementById('date_of_usg');
+  let patient_name_field = document.getElementById('patient_name');
+  let husband_name_field = document.getElementById('husband_name');
+  let patient_age_field = document.getElementById('patient_age');
+  let last_menstrual_period_field = document.getElementById('last_menstrual_period');
+  let number_of_male_children_field = document.getElementById('number_of_male_children');
+  let number_of_female_children_field = document.getElementById('number_of_female_children');
+  let referred_by_field = document.getElementById('referred_by');
+  let mobile_no_field = document.getElementById('mobile_no');
+  let address_field = document.getElementById('address');
 
-// Content script file will run in the context of web page.
-// With content script you can manipulate the web pages using
-// Document Object Model (DOM).
-// You can also pass information to the parent extension.
+  patient_id_field.value = 25
+}
 
-// We execute this script by making an entry in manifest.json file
-// under `content_scripts` property
-
-// For more information on Content Scripts,
-// See https://developer.chrome.com/extensions/content_scripts
-
-// Log `title` of current active web page
-const pageTitle = document.head.getElementsByTagName('title')[0].innerHTML;
-console.log(
-  `Page title is: '${pageTitle}' - evaluated by Chrome extension's 'contentScript.js' file`
-);
-
-// Communicate with background file by sending a message
-chrome.runtime.sendMessage(
-  {
-    type: 'GREETINGS',
-    payload: {
-      message: 'Hello, my name is Con. I am from ContentScript.',
-    },
-  },
-  (response) => {
-    console.log(response.message);
-  }
-);
-
-// Listen for message
-chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-  if (request.type === 'COUNT') {
-    console.log(`Current count is ${request.payload.count}`);
-  }
-
-  // Send an empty response
-  // See https://github.com/mozilla/webextension-polyfill/issues/130#issuecomment-531531890
-  sendResponse({});
-  return true;
-});
+autofillFields();
