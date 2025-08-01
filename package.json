@@ -1,6 +1,6 @@
 {
   "name": "form-f-autofiller",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Autofiller for Indian Government's Form F",
   "private": true,
   "scripts": {
